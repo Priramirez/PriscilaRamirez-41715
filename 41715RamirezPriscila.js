@@ -106,6 +106,9 @@ alert('Impuesto Aldeano: 1,21%');
 let descuento = false;
 descuento = confirm('Tiene un cupón de descuento? ...("PRI")... *guiño* *guiño*');
 
+let carrito1 = [];
+
+
     if (descuento) {
 
         let valido = false;
@@ -115,26 +118,41 @@ descuento = confirm('Tiene un cupón de descuento? ...("PRI")... *guiño* *guiñ
             cupon = prompt('ingrese aquí su cupon:').toUpperCase();
 
             if (cupon == "PRI") {
-                carrito.forEach ( (cosa) => {
+                carrito1 = carrito.map( (b) => {
                     return {
-                        nombre: cosa.nombre,
-                        precio: (cosa.precio*0.30).toFixed(),
-                        cantidad: cosa.cantidad
+                        nombre: b.nombre,
+                        precio: (b.precio*0.70).toFixed(),
+                        cantidad: b.cantidad
                     }
                 })
                     alert( 'Su cupón es válido. Recibe un 30% de descuento en su compra!');
                 } else {
                         alert('Cupón no válido. Vuela a ingresarlo');
                         valido = true;
+                        carrito1 = carrito.map( (c) => {
+                            return {
+                                nombre: c.nombre,
+                                precio: c.precio,
+                                cantidad: c.cantidad
+                            }
+                        })
                     }
         } while (valido);
+    } else {
+        carrito1 = carrito.map( (d) => {
+            return {
+                nombre: d.nombre,
+                precio: d.precio,
+                cantidad: d.cantidad
+            }
+        })
     }
 
 const nombres = [];
 const precios = [];
 const cantidades = [];
 
-for (const n of carrito) {
+for (const n of carrito1) {
     nombres.push (n.nombre);
     precios.push (n.precio*n.cantidad).toFixed();
     cantidades.push(n.cantidad);
@@ -186,23 +204,19 @@ if (finalizar) {
 
     if (revision) {
 
-         alert(`Usted adquirió: 
+        alert(`Usted adquirió: 
                 Dragon: ${nombres.join(',')}
                 Cantidades: ${cantidades.join(',')}
                 Precios: ( ${precios.join(' gemas, ')} ) gemas
                 
                 Monto final (incluye impuestos y descuentos): ${montoFinal}`);
             
-         }
-        
-     else {
-        Alert (`Monto total: ${montoFinal}  gemas.
+    }
+    else {
+        alert (`Monto total: ${montoFinal}  gemas.
         ¡Gracias por su compra!`);
     }
 } 
 else {
     alert('Compra cancelada');
 }
-
-Alert (`Monto total: ${montoFinal}  gemas.
-        ¡Gracias por su compra!`);

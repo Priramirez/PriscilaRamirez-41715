@@ -63,7 +63,7 @@ const contenedor = document.getElementById('producto-contenedor');
 dragones.forEach( prod => {
 
     const section = document.createElement('section');
-    section.classList.add('section-box');
+    section.classList.add('section');
     section.innerHTML =
     `<section class="section">
             <article class="post">
@@ -86,6 +86,7 @@ dragones.forEach( prod => {
 contenedor.appendChild(section);
 
 })
+
 
 
 // const originalCarrito = [];

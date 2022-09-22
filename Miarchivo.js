@@ -110,24 +110,28 @@ function agregar0() {
     dragon = 'ARAGON';
     precio = 180
     originalCarrito.push({dragon,cantidad,precio});
+    boton0.textContent = (`${cantidad} dragón en el carrito ¿Desea añadir más?`);
 }
 function agregar1() {
     cantidad = prompt('cuántos comprará?');
     dragon = 'CYNDER';
     precio = 1000;
     originalCarrito.push({dragon,cantidad,precio});
+    boton1.textContent = (`${cantidad} dragón en el carrito ¿Desea añadir más?`);
 }
 function agregar2() {
     cantidad = prompt('cuántos comprará?');
     dragon = 'PLUTONIUS';
     precio = 200
     originalCarrito.push({dragon,cantidad,precio});
+    boton2.textContent = (`${cantidad} dragón en el carrito ¿Desea añadir más?`);
 }
 function agregar3() {
     cantidad = prompt('cuántos comprará?');
     dragon = 'LILITH'
     precio = 300;
     originalCarrito.push({dragon,cantidad,precio});
+    boton3.textContent = (`${cantidad} dragón en el carrito ¿Desea añadir más?`);
 }
 
 console.log(originalCarrito);

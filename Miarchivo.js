@@ -78,7 +78,7 @@ dragones.forEach( prod => {
                                     <br>
                                     <h4>${prod.precio}</h4>
                                     <br> 
-                                    <button class="boton" type="button" id="addBtn" >Adquirir</button>
+                                    <button class="boton" type="button" id="addBtn${prod.id}" >Adquirir</button>
                             </div>
             </article>
     </section>`;
@@ -87,189 +87,145 @@ contenedor.appendChild(section);
 
 })
 
+const originalCarrito = [];
+
+let dragon = "";
+let precio = 0;
+let agregarItems = false;
+let cantidad = 0;
+
+let boton0 = document.getElementById('addBtn0');
+let boton1 = document.getElementById('addBtn1');
+let boton2 = document.getElementById('addBtn2');
+let boton3 = document.getElementById('addBtn3');
 
 
-// const originalCarrito = [];
+boton0.addEventListener('click', agregar0);
+boton1.addEventListener('click', agregar1);
+boton2.addEventListener('click', agregar2);
+boton3.addEventListener('click', agregar3);
 
-// let dragon = "";
-// let precio = 0;
-// let agregarItems = false;
-// let cantidad = 0;
+function agregar0() {
+    cantidad = prompt('cuántos comprará?');
+    dragon = 'ARAGON';
+    precio = 180
+    originalCarrito.push({dragon,cantidad,precio});
+}
+function agregar1() {
+    cantidad = prompt('cuántos comprará?');
+    dragon = 'CYNDER';
+    precio = 1000;
+    originalCarrito.push({dragon,cantidad,precio});
+}
+function agregar2() {
+    cantidad = prompt('cuántos comprará?');
+    dragon = 'PLUTONIUS';
+    precio = 200
+    originalCarrito.push({dragon,cantidad,precio});
+}
+function agregar3() {
+    cantidad = prompt('cuántos comprará?');
+    dragon = 'LILITH'
+    precio = 300;
+    originalCarrito.push({dragon,cantidad,precio});
+}
 
-// do {
-//     dragon = prompt(`Contamos con los siguientes dragones:
-//     1-Áragon
-//     2-Cynder
-//     3-Lilith
-//     4-Plutonius
-
-//     ¿Qué dragon desea adquirir? `).toUpperCase();
-//     cantidad = prompt(`¿Cuántos dragones llevará? `);
-
-//     switch(dragon) {
-//         case "ÁRAGON" :
-//         precio = 180;
-//         break;
-
-//         case "ARAGON" :
-//         precio = 180;
-//         break;
-
-//         case "CYNDER" :
-//         precio = 1000;
-//         break;
-
-//         case "PLUTONIUS" :
-//         precio = 200;
-//         break;
-
-//         case "LILITH" :
-//         precio = 300;
-//         break;
-
-//         default :
-//         alert('No contamos con el dragón mencionado. Por favor, escriba otro nombre')
-//         precio = 0;
-//         cantidad = 0;
-
-//     }
+console.log(originalCarrito);
 
 
-// agregarItems = confirm("Desea agregar más productos al carrito?");
 
-// originalCarrito.push({dragon,cantidad,precio});
+function chango() {
 
-// }
-// while(agregarItems);
-
-
-// const carrito = originalCarrito.map( (elemento) => { 
-//     return { 
-//         nombre: elemento.dragon,
-//         precio: (elemento.precio*1.21).toFixed(),
-//         cantidad: elemento.cantidad
-//     }
-// })
-
-// console.log (carrito);
-
-
-// alert('Impuesto Aldeano: 1,21%');
-
-// let descuento = false;
-// descuento = confirm('Tiene un cupón de descuento? ...("PRI")... *guiño* *guiño*');
-
-// let carrito1 = [];
-
-
-//     if (descuento) {
-
-//         let valido = false;
-
-//         do {
-//             let cupon = "";
-//             cupon = prompt('ingrese aquí su cupon:').toUpperCase();
-
-//             if (cupon == "PRI") {
-//                 carrito1 = carrito.map( (b) => {
-//                     return {
-//                         nombre: b.nombre,
-//                         precio: (b.precio*0.70).toFixed(),
-//                         cantidad: b.cantidad
-//                     }
-//                 })
-//                     alert( 'Su cupón es válido. Recibe un 30% de descuento en su compra!');
-//                 } else {
-//                         alert('Cupón no válido. Vuelva a ingresarlo');
-//                         valido = true;
-//                         carrito1 = carrito.map( (c) => {
-//                             return {
-//                                 nombre: c.nombre,
-//                                 precio: c.precio,
-//                                 cantidad: c.cantidad
-//                             }
-//                         })
-//                     }
-//         } while (valido);
-//     } else {
-//         carrito1 = carrito.map( (d) => {
-//             return {
-//                 nombre: d.nombre,
-//                 precio: d.precio,
-//                 cantidad: d.cantidad
-//             }
-//         })
-//     }
-
-// const nombres = [];
-// const precios = [];
-// const cantidades = [];
-
-// for (const n of carrito1) {
-//     nombres.push (n.nombre);
-//     precios.push (n.precio*n.cantidad).toFixed();
-//     cantidades.push(n.cantidad);
-// }
-
-
-// console.log(nombres);
-// console.log(precios);
-// console.log(cantidades);
-
-// let consulta = false;
-// consulta = confirm(`Usted está comprando: 
-// Dragon: ${nombres.join(',')}
-// Cantidades: ${cantidades.join(',')}
-// Precios: ${precios.join(' gemas, ')}
-// ¿desea modificar su compra?`);
-
-//     if(consulta) {
+    const carrito0 = originalCarrito.map( (elemento) => { 
+        return { 
+            nombre: elemento.dragon,
+            precio: elemento.precio,
+            cantidad: elemento.cantidad
+        }
+    })
     
-//         do {
-//             posicion = nombres.indexOf(String(prompt('indique el nombre del dragón desea eliminar').toUpperCase()));
-//             if (posicion != -1) {
+    console.log (carrito0);
 
-//                 nombres.splice(posicion,1);
-//                 precios.splice(posicion,1);
-//                 cantidades.splice(posicion,1);
+    const nombres0 = [];
+    const precios0 = [];
+    const cantidades0 = [];
 
-//                 alert(`Usted está comprando: 
-//                 Dragon: ${nombres.join(',')}
-//                 Cantidades: ${cantidades.join(',')}
-//                 Precios: ${precios.join(' gemas, ')} `);
-//                 }
-//                 else { 
-//                     alert('No existe ese elemento.');
-//             }
-//         }
-//         while ((confirm('Desea realizar más cambios a su compra?')))
-//     }
+    for (const n of carrito0) {
+    nombres0.push (n.nombre);
+    precios0.push (n.precio*n.cantidad).toFixed();
+    cantidades0.push(n.cantidad);
+    }
+    
+    console.log(nombres0);
+
+    let consulta = false;
+
+    consulta = confirm(`Usted está comprando: 
+    Dragon: ${nombres0.join(',')}
+    Cantidades: ${cantidades0.join(',')}
+    Precios: ${precios0.join(' gemas, ')}
+    ¿desea modificar su compra?`);
+
+    if(consulta) {
+        
+        do {
+            posicion = nombres0.indexOf(String(prompt('indique el nombre del dragón desea eliminar').toUpperCase()));
+            if (posicion != -1) {   
+
+                nombres0.splice(posicion,1);
+                precios0.splice(posicion,1);
+                cantidades0.splice(posicion,1);
+
+                alert(`Usted está comprando: 
+                    Dragon: ${nombres0.join(',')}
+                    Cantidades: ${cantidades0.join(',')}
+                    Precios: ${precios0.join(' gemas, ')} `);
+                    }
+            else { 
+                    alert('No existe ese elemento.');
+                }
+            }
+            while ((confirm('Desea realizar más cambios a su compra?')))
+        }
+
+
+        let finalizar = confirm('Finalizar compra');
+
+        if (finalizar) {
+        
+            const montoFinal = precios0.reduce((acc,p) => acc+p,0);
+         
+            let revision = confirm('Desea revisar su compra?');
+        
+            if (revision) {
+        
+                alert(`Usted adquirió: 
+                        Dragon: ${nombres0.join(',')}
+                        Cantidades: ${cantidades0.join(',')}
+                        Precios:  ${precios0.join(' gemas, ')} gemas
+                        
+                        Monto final: ${montoFinal} gemas`);
+                    
+            }
+            else {
+                alert (`Monto total: ${montoFinal}  gemas.
+                ¡Gracias por su compra!`);
+            }
+        } 
+        else {
+            alert('Compra cancelada');
+        }
+    }
 
 
 
-// let finalizar = confirm('Finalizar compra');
+let carritoBtn = document.getElementById('verCarrito');
 
-// if (finalizar) {
+carritoBtn.addEventListener('click', chango);
 
-//     const montoFinal = precios.reduce((acc,p) => acc+p,0);
- 
-//     let revision = confirm('Desea revisar su compra?');
 
-//     if (revision) {
 
-//         alert(`Usted adquirió: 
-//                 Dragon: ${nombres.join(',')}
-//                 Cantidades: ${cantidades.join(',')}
-//                 Precios: ( ${precios.join(' gemas, ')} ) gemas
-                
-//                 Monto final (incluye impuestos y descuentos): ${montoFinal}`);
-            
-//     }
-//     else {
-//         alert (`Monto total: ${montoFinal}  gemas.
-//         ¡Gracias por su compra!`);
-//     }
-// } 
-// else {
-//     alert('Compra cancelada');
-// }
+    
+
+
+
